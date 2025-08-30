@@ -1,0 +1,44 @@
+# === TERRAFORM ===
+**/.terraform/*
+.terraform.lock.hcl
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Terraform plan output
+*.tfplan
+
+# Terraform variable files
+terraform.tfvars
+*.tfvars.json
+
+# === ENV FILES ===
+.env
+*.env
+bootstrap/.env
+main/.env
+
+# === AWS CREDENTIALS ===
+.aws/
+credentials
+config
+
+# === Private Keys ===
+*.pem
+*.key
+*.crt
+
+# === LOG FILES ===
+*.log
+
+# === IDE/EDITOR FILES ===
+.vscode/
+.idea/
+
+# === OS GENERATED FILES ===
+.DS_Store   
+Thumbs.db
