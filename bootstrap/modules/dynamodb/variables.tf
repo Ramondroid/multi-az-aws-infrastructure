@@ -1,13 +1,3 @@
-variable "region" {
-  description = "The AWS region to create resources in"
-  type        = string
-}
-
-variable "bucket_name" {
-  description = "The name of the S3 bucket"
-  type        = string
-}
-
 variable "dynamodb_table_name" {
   description = "The name of the DynamoDB table"
   type        = string
@@ -31,17 +21,12 @@ variable "attribute_config" {
   })
 }
 
-variable "project_code" {
-  description = "The project code for tagging resources"
-  type        = map(string)
-}
-
-variable "prevent_destroy" {
+variable "sse_enabled" {
   description = "Boolean value"
   type        = bool
 }
 
-variable "force_destroy" {
-  description = "Boolean value"
-  type        = bool 
+variable "project_code" {
+  description = "The project code for tagging resources"
+  type        = map(string)
 }
