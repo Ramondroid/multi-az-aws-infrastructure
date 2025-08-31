@@ -6,8 +6,8 @@ variable "data_most_recent" {
 variable "bastion_config" {
   description = "Configuration for the Bastion Host"
   type = object({
-    instance_type      = string
-    key_name           = string
+    instance_type = string
+    key_name      = string
   })
 }
 

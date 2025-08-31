@@ -43,5 +43,5 @@ variable "prevent_destroy" {
 
 variable "force_destroy" {
   description = "Boolean value"
-  type        = bool 
+  type        = bool
 }

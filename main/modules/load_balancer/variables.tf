@@ -14,17 +14,17 @@ variable "public_subnet_ids" {
 variable "private_subnet_ids" {
   description = "List of private subnet IDs for the load balancer"
   type        = list(string)
-  
+
 }
 variable "load_balancer_config" {
   description = "Configuration for the Load Balancer"
   type = object({
-    internal = bool
-    name = string
-    port     = number 
-    protocol = string
+    internal    = bool
+    name        = string
+    port        = number
+    protocol    = string
     target_type = string
-    action = string
+    action      = string
   })
 }
 variable "health_check_config" {
@@ -40,6 +40,6 @@ variable "health_check_config" {
   })
 }
 variable "project_code" {
-    description = "A map containing project code details"
-    type        = map(string)
+  description = "A map containing project code details"
+  type        = map(string)
 }
