@@ -16,12 +16,11 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_subnet" "private_subnet" {
-  for_each                = var.public_subnets
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = each.value.cidr_block
-  availability_zone       = each.value.availability_zone
-  map_public_ip_on_launch = var.map_public_ip_on_launch
-  tags                    = { Name = "${var.project_code["ProjectCode"]}-private-subnet-${each.key}" }
+  for_each          = var.private_subnets
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = each.value.cidr_block
+  availability_zone = each.value.availability_zone
+  tags              = { Name = "${var.project_code["ProjectCode"]}-private-subnet-${each.key}" }
 }
 
 resource "aws_internet_gateway" "internet_gateway" {

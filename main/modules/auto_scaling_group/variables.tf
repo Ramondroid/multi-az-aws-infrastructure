@@ -7,20 +7,30 @@ variable "asg_config" {
     health_check_type         = string
     health_check_grace_period = number
     name                      = string
-    vpc_zone_identifier       = list(string)
-    launch_template_id        = string
-    launch_template_version   = string
   })
+}
+variable "subnet_ids" {
+  description = "List of subnet IDs for the Auto Scaling Group"
+  type        = list(string)
 }
 
 variable "launch_template_config" {
   description = "Configuration for the Launch Template"
   type = object({
-    instance_type      = string
-    key_name           = string
-    security_group_ids = list(string)
-    user_data          = string
+    instance_type = string
+    key_name      = string
+    resource_type = string
   })
+}
+
+variable "security_group_ids" {
+  description = "List of security group IDs to associate with the instances"
+  type        = list(string)
+}
+
+variable "user_data" {
+  description = "User data script to configure instances"
+  type        = string
 }
 
 variable "security_group_ids" {
@@ -76,4 +86,9 @@ variable "cpu_low_alarm_config" {
 variable "data_most_recent" {
   description = "Boolean to fetch the most recent AMI"
   type        = bool
+}
+
+variable "project_code" {
+  description = "A map containing project code details"
+  type        = map(string)
 }

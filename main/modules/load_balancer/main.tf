@@ -3,7 +3,7 @@ resource "aws_lb" "alb" {
   internal           = var.load_balancer_config.internal
   load_balancer_type = var.load_balancer_type
   security_groups    = [aws_security_group.alb_sg.id]
-  subnets            = var.public_subnet_ids
+  subnets            = var.subnet_ids
 
   tags = { Name = "${var.project_code["ProjectCode"]}-alb" }
 }

@@ -8,14 +8,14 @@ data "aws_ami" "amazon_linux_2" {
 }
 
 resource "aws_launch_template" "launch_template" {
-  name_prefix            = "${var.project_code["ProjectCode"]}-lunch-template-"
+  name_prefix            = "${var.project_code["ProjectCode"]}-launch-template"
   image_id               = var.data.aws_ami.amazon_linux_2.id
   instance_type          = var.launch_template_config.instance_type
   key_name               = var.launch_template_config.key_name
   user_data              = base64encode(var.launch_template_config.user_data)
   vpc_security_group_ids = var.security_group_ids
   tag_specifications {
-    resource_type = "instance"
+    resource_type = var.launch_template_config.resource_type
     tags = {
       Name = "${var.project_code["ProjectCode"]}-instance"
     }
@@ -29,7 +29,7 @@ resource "aws_autoscaling_group" "asg" {
   min_size                  = var.asg_config.min_size
   health_check_type         = var.asg_config.health_check_type
   health_check_grace_period = var.asg_config.health_check_grace_period
-  vpc_zone_identifier       = var.asg_config.vpc_zone_identifier
+  vpc_zone_identifier       = var.subnet_ids
   launch_template {
     id      = aws_launch_template.launch_template.id
     version = "$Latest"

@@ -6,15 +6,9 @@ variable "vpc_id" {
   description = "The VPC ID where the load balancer and target group will be created"
   type        = string
 }
-variable "public_subnet_ids" {
-  description = "List of public subnet IDs for the load balancer"
+variable "subnet_ids" {
+  description = "List of subnet IDs for the load balancer"
   type        = list(string)
-}
-
-variable "private_subnet_ids" {
-  description = "List of private subnet IDs for the load balancer"
-  type        = list(string)
-
 }
 variable "load_balancer_config" {
   description = "Configuration for the Load Balancer"
@@ -27,6 +21,7 @@ variable "load_balancer_config" {
     action      = string
   })
 }
+
 variable "health_check_config" {
   description = "Health check configuration for the ALB target group"
   type = object({

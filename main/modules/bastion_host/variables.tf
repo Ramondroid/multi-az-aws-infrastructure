@@ -25,3 +25,8 @@ variable "bastion_public_enable" {
   description = "Boolean to enable/disable public IP association for the bastion host"
   type        = bool
 }
+
+variable "project_code" {
+  description = "A map containing project code details"
+  type        = map(string)
+}

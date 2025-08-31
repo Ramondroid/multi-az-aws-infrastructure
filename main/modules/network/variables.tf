@@ -11,6 +11,14 @@ variable "public_subnets" {
   }))
 }
 
+variable "private_subnets" {
+  description = "Map of private subnets with their CIDR blocks and availability zones"
+  type = map(object({
+    cidr_block        = string
+    availability_zone = string
+  }))
+}
+
 variable "map_public_ip_on_launch" {
   description = "Boolean to enable/disable public IP mapping on launch"
   type        = bool
