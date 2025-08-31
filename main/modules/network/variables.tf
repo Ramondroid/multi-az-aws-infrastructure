@@ -1,6 +1,6 @@
 variable "project_code" {
-    description = "Project code to tag resources"
-    type = map(string)
+    description = "A map containing project code details"
+    type        = map(string)
 }
 
 variable "public_subnets" {
