@@ -4,6 +4,9 @@
 ## 📖 Overview
 This project provisions a **highly available, secure, and scalable AWS 3-tier architecture** using **Terraform**. It follows **Infrastructure as Code (IaC)** best practices for cloud infrastructure design, separating frontend, backend, and database state locking. 
 
+### 3-Tier Multi-AZ AWS Architecture
+![3-Tier Multi-AZ AWS Architecture](./screenshots/Multi-AZ-Infrastructure-Architecture.jpg)
+
 The infrastructure is designed for **3-Tier Architecture**, an example  and includes:
 - **Networking** with VPC, public and private subnets, Internet Gateway, and NAT Gateway
 - **Compute** with Bastion Host, Auto Scaling Groups (ASG) and Application Load Balancers (ALB)
