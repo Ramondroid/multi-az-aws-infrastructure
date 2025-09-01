@@ -36,10 +36,6 @@ variable "project_code" {
   type        = map(string)
 }
 
-variable "prevent_destroy" {
-  description = "Boolean value"
-  type        = bool
-}
 
 variable "force_destroy" {
   description = "Boolean value"

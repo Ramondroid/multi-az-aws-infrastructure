@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "tf_state" {
   force_destroy = var.force_destroy
 
   lifecycle {
-    prevent_destroy = var.prevent_destroy
+    prevent_destroy = true
   }
 
   tags = var.project_code

@@ -11,23 +11,6 @@ systemctl enable httpd
 # Backend URL (Injected from Terraform)
 BACKEND_URL="http://@@BACKEND_URL@@/api.json"
 
-# Fetch backend data and store in index.html
-# cat <<EOF > /var/www/html/index.html
-# <html>
-# <head>
-#     <title>Frontend Server</title>
-# </head>
-# <body>
-#     <h1>Frontend Server - $(hostname)</h1>
-#     <h2>Backend Response:</h2>
-#     <pre>$(curl -s $BACKEND_URL)</pre>
-# </body>
-# </html>
-# EOF
-
-# # Log the interaction
-# echo "Fetched from $BACKEND_URL at $(date)" >> /var/log/asg-frontend.log
-
 # Enable CGI in Apache
 echo "AddHandler cgi-script .sh" >> /etc/httpd/conf/httpd.conf
 echo "DirectoryIndex /cgi-bin/fetch_backend.sh" >> /etc/httpd/conf/httpd.conf
