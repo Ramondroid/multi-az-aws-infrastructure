@@ -2,7 +2,7 @@ resource "aws_lb" "alb" {
   name               = var.load_balancer_config.name
   internal           = var.load_balancer_config.internal
   load_balancer_type = var.load_balancer_type
-  security_groups    = [aws_security_group.alb_sg.id]
+  security_groups    = var.security_group_ids
   subnets            = var.subnet_ids
 
   tags = { Name = "${var.project_code["ProjectCode"]}-alb" }
@@ -12,7 +12,7 @@ resource "aws_lb_target_group" "target_group" {
   name        = "${var.load_balancer_config.name}-tg"
   port        = var.load_balancer_config.port
   protocol    = var.load_balancer_config.protocol
-  vpc_id      = var.load_balancer_config.vpc_id
+  vpc_id      = var.vpc_id
   target_type = var.load_balancer_config.target_type
 
   health_check {

@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "MultiAZ-S3-Bucket"
+    bucket         = "multi-az-s3-bucket-project"
     key            = "global/terraform.tfstate"
     region         = "ap-southeast-1"
-    dynamodb_table = "MultiAZ-DynamoDB-Table"
+    dynamodb_table = "multi-az-dynamodb-table"
     encrypt        = true
   }
 }

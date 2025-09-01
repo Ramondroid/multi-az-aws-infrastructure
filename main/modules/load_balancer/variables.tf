@@ -10,6 +10,11 @@ variable "subnet_ids" {
   description = "List of subnet IDs for the load balancer"
   type        = list(string)
 }
+
+variable "security_group_ids" {
+  description = "List of security group IDs to associate with the load balancer"
+  type        = list(string)
+}
 variable "load_balancer_config" {
   description = "Configuration for the Load Balancer"
   type = object({

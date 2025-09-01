@@ -5,8 +5,7 @@ variable "asg_config" {
     max_size                  = number
     min_size                  = number
     health_check_type         = string
-    health_check_grace_period = number
-    name                      = string
+    name              = string
   })
 }
 variable "subnet_ids" {
@@ -21,11 +20,6 @@ variable "launch_template_config" {
     key_name      = string
     resource_type = string
   })
-}
-
-variable "security_group_ids" {
-  description = "List of security group IDs to associate with the instances"
-  type        = list(string)
 }
 
 variable "user_data" {
@@ -66,6 +60,7 @@ variable "cpu_high_alarm_config" {
     threshold           = number
     evaluation_periods  = number
     period              = number
+    alarm_description = string
   })
 }
 
@@ -79,6 +74,7 @@ variable "cpu_low_alarm_config" {
     threshold           = number
     evaluation_periods  = number
     period              = number
+    alarm_description = string
   })
 
 }
@@ -91,4 +87,9 @@ variable "data_most_recent" {
 variable "project_code" {
   description = "A map containing project code details"
   type        = map(string)
+}
+
+variable "alb_target_group_arn" {
+  description = "ARN of the ALB target group to attach to the ASG"
+  type        = string
 }

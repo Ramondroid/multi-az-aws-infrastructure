@@ -142,8 +142,7 @@ variable "frontend_asg_config" {
     max_size                  = number
     min_size                  = number
     health_check_type         = string
-    health_check_grace_period = number
-    name                      = string
+    name              = string
   })
 }
 
@@ -154,8 +153,7 @@ variable "backend_asg_config" {
     max_size                  = number
     min_size                  = number
     health_check_type         = string
-    health_check_grace_period = number
-    name                      = string
+    name              = string
   })
 }
 
@@ -205,6 +203,7 @@ variable "cpu_high_alarm_config" {
     threshold           = number
     evaluation_periods  = number
     period              = number
+    alarm_description = string
   })
 }
 
@@ -218,6 +217,7 @@ variable "cpu_low_alarm_config" {
     threshold           = number
     evaluation_periods  = number
     period              = number
+    alarm_description = string
   })
 
 }
